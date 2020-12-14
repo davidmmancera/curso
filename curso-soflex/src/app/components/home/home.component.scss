@@ -1,0 +1,49 @@
+.subrayado-margen {
+    margin: 20px !important;
+    text-align: left;
+}
+
+.content-tabla {
+    text-align: center;
+}
+
+.cards{
+    padding: 10px;
+    float: left;
+}
+
+.cards .subrayado-margen {
+    margin: 20px 0 !important;
+    text-align: left;
+    position: relative;
+    padding-left: 30px;
+}
+
+.cards .subrayado-margen .mat-icon {
+    position: absolute;
+    top: 5px;
+    left: 0;
+}
+
+.cards .mat-card {
+    min-height: 390px;
+    width: 195px;
+    margin: 20px 10px;
+    float: left;
+    display: inline;
+}
+
+button {
+    width: 165px;
+    font-size: 13px;
+}
+
+button:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.divider-admin {
+    display: flex;
+    overflow: hidden;
+    height: 1%;
+}
