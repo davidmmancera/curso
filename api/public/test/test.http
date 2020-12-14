@@ -1,0 +1,56 @@
+
+####
+GET http://localhost:8080/denuncias-api/index.php/celular-marca
+####
+GET http://localhost:8080/denuncias-api/index.php/departamento
+####
+GET http://localhost:8080/denuncias-api/index.php/documento-tipo
+####
+GET http://localhost:8080/denuncias-api/index.php/localidad?departamento=1
+####
+GET http://localhost:8080/denuncias-api/index.php/ocupacion
+####
+GET http://localhost:8080/denuncias-api/index.php/pais
+####
+GET http://localhost:8080/denuncias-api/index.php/vehiculo-color
+####
+GET http://localhost:8080/denuncias-api/index.php/vehiculo-marca
+####
+GET http://localhost:8080/denuncias-api/index.php/vehiculo-modelo?marca=9
+
+
+
+
+###
+GET https://911.soflex.com.ar:8087/denuncias-web-api/index.php/ocupacion
+
+###
+GET https://911.soflex.com.ar:8087/denuncias-web-api/index.php/localidad?departamento=1 HTTP/1.1
+
+
+
+###
+
+
+POST http://localhost:8080/denuncias-api/index.php/denuncia HTTP/1.1
+content-type: application/json; charset=UTF-8
+
+{
+    "deweCodigo": "ABC1234",
+    "deweJSON": "{ZARAZA}"
+}
+
+
+
+###
+
+POST https://sisep.soflex.com.ar/api/geocode/buscar HTTP/1.1
+content-type: application/json; charset=UTF-8
+
+{
+    "direccion": "avenida corrientes 1234",
+    "localidad": "COMUNA 1",
+    "partido": "CABA"
+}
+
+
