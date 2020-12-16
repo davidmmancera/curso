@@ -1,28 +1,24 @@
-<h3 class="subrayado-margen">Administrador de Pedidos</h3>
-
-<div class="cards"> 
-
-    <div class="col-lg-2 content-tabla">
-        <mat-card>            
-            <mat-card-content>
-                <button mat-raised-button>
-                    Clientes
-                </button><br><br>
-                <button mat-raised-button>
-                    Productos
-                </button><br><br>
-                <button mat-raised-button>
-                    Pedidos   
-                </button><br><br>
-                <button mat-raised-button>
-                    Detalle de Pedidos   
-                </button>            
-            </mat-card-content>
-        </mat-card>
+<div class="col-md-3">
+    <div class="card-container">
+    <a class="card" routerLink="/cliente">        
+        <span>Clientes</span>
+    </a>    
     </div>
 
-</div>
+    <div class="card-container">
+    <a class="card" routerLink="/producto">
+            <span>Productos</span>
+        </a>
+    </div>
 
-<div>
-    <app-cliente></app-cliente>
+    <div class="card-container">
+    <a class="card" routerLink="/pedido">
+        <span>Pedidos</span>
+        </a>
+    </div>
 </div>
+ 
+<div class="col-md-9">
+  <router-outlet></router-outlet>
+</div>
+  

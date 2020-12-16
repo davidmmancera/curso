@@ -15,13 +15,5 @@ if($ambiente == "dev"){
     defined ( 'REMOTE_STORAGE' ) ? null : define ( 'REMOTE_STORAGE', 'http://192.168.1.17/sisep_same/apps/administrador_archivos/api/index.php/' );
     // defined ( 'REMOTE_STORAGE' ) ? null : define ( 'REMOTE_STORAGE', 'http://localhost:8080/administrador_archivos_api/index.php/' );
 } 
-else if ($ambiente == "test")
-{
-    
-}
-else if ($ambiente == "prod")
-{
-
-}
 
 ?>

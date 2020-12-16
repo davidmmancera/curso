@@ -1,49 +1,101 @@
-.subrayado-margen {
-    margin: 20px !important;
-    text-align: left;
+.spacer {
+    flex: 1;
 }
 
-.content-tabla {
-    text-align: center;
+a{
+    text-decoration: none;
 }
 
-.cards{
-    padding: 10px;
-    float: left;
+.material-icons{
+    margin-right: 5px;
 }
 
-.cards .subrayado-margen {
-    margin: 20px 0 !important;
-    text-align: left;
-    position: relative;
-    padding-left: 30px;
-}
-
-.cards .subrayado-margen .mat-icon {
-    position: absolute;
-    top: 5px;
+.toolbar {
+    position: sticky;
+    top: 0;
     left: 0;
-}
-
-.cards .mat-card {
-    min-height: 390px;
-    width: 195px;
-    margin: 20px 10px;
-    float: left;
-    display: inline;
-}
-
-button {
-    width: 165px;
-    font-size: 13px;
-}
-
-button:hover {
-    background-color: rgb(238, 238, 238);
-}
-
-.divider-admin {
+    right: 0;
+    height: 60px;
     display: flex;
-    overflow: hidden;
-    height: 1%;
+    align-items: center;
+    background-color: #4a525a;
+    color: white;
+    font-weight: 600;
 }
+
+.toolbar img {
+    margin: 0 10px;
+}
+
+.card {
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 30px;
+    width: 150px;
+    margin: 0 30px 0px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+}
+
+.card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+}
+
+.card.card.highlight-card span {
+    margin-left: 60px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.card-container .card:not(:last-child) {
+    margin-right: 0;
+}
+
+.card-container .card:not(.highlight-card) {
+    cursor: pointer;
+}
+
+.card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.card.highlight-card span {
+    margin-left: 72px;
+}
+
+.card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+}
+
+@media screen and (max-width: 767px) {
+    .card-container > *:not(.circle-link) ,
+
+    .card:not(.highlight-card) {
+        height: 16px;
+        margin: 8px 0;
+    }
+
+    .card.highlight-card span {
+        margin-left: 72px;
+    }
+}
+
+

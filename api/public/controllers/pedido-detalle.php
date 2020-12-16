@@ -1,5 +1,5 @@
 <?php
-$app->get('/detalle-pedido', function ($request, $response, $args) {
+$app->get('/pedido-detalle', function ($request, $response, $args) {
 
     $db = SQLSRV::connect();
     $stmt = sqlsrv_query($db,"SELECT detaId
@@ -34,7 +34,7 @@ $app->get('/detalle-pedido', function ($request, $response, $args) {
               ->withHeader('Content-Type', 'application/json');
 });
 
-$app->get('/detalle-pedido/{id}', function ($request, $response, $args) {
+$app->get('/pedido-detalle/{id}', function ($request, $response, $args) {
 
     $id = $args['id'];
 
@@ -71,7 +71,7 @@ $app->get('/detalle-pedido/{id}', function ($request, $response, $args) {
               ->withHeader('Content-Type', 'application/json');
 });
 
-$app->delete('/detalle-pedido/{id}', function ($request, $response, $args) {
+$app->delete('/pedido-detalle/{id}', function ($request, $response, $args) {
 
     $id = $args['id'];
 
@@ -99,7 +99,7 @@ $app->delete('/detalle-pedido/{id}', function ($request, $response, $args) {
             ->withHeader('Content-Type', 'application/json');
 });
 
-$app->put('/detalle-pedido/{id}', function ($request, $response, $args) {
+$app->put('/pedido-detalle/{id}', function ($request, $response, $args) {
 
     $id = $args['id'];
     $input = file_get_contents("php://input");
@@ -143,7 +143,7 @@ $app->put('/detalle-pedido/{id}', function ($request, $response, $args) {
 
 });
 
-$app->post('/detalle-pedido', function ($request, $response, $args) {
+$app->post('/pedido-detalle', function ($request, $response, $args) {
 
     $input = file_get_contents("php://input");
     $data = json_decode($input, true);
