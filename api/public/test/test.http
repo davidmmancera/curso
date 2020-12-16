@@ -2,30 +2,11 @@
 ####
 GET http://localhost:8080/curso-soflex/index.php/cliente
 ####
-GET http://localhost:8080/curso-soflex/index.php/departamento
-####
-GET http://localhost:8080/curso-soflex/index.php/documento-tipo
-####
-GET http://localhost:8080/denuncias-api/index.php/localidad?departamento=1
-####
-GET http://localhost:8080/denuncias-api/index.php/ocupacion
-####
 GET http://localhost:8080/curso-soflex/index.php/pais
+
 ####
-GET http://localhost:8080/denuncias-api/index.php/vehiculo-color
-####
-GET http://localhost:8080/denuncias-api/index.php/vehiculo-marca
-####
-GET http://localhost:8080/denuncias-api/index.php/vehiculo-modelo?marca=9
+GET http://localhost:8080/curso-soflex/index.php/cliente
 
-
-
-
-###
-GET https://911.soflex.com.ar:8087/denuncias-web-api/index.php/ocupacion
-
-###
-GET https://911.soflex.com.ar:8087/denuncias-web-api/index.php/localidad?departamento=1 HTTP/1.1
 
 
 

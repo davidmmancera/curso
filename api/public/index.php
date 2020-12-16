@@ -37,7 +37,10 @@ include_once "globales.php";
 
 /************* API *************/
 
-include_once 'controllers/pais.php';
+include_once 'controllers/cliente.php';
+include_once 'controllers/producto.php';
+include_once 'controllers/pedido.php';
+include_once 'controllers/detalle-pedido.php';
 
 
 $app->get('/', function (Request $request, Response $response, $args) {
