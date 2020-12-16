@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,8 +37,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     BrowserModule,
     MatCardModule,
     AppRoutingModule,
+    NoopAnimationsModule,
     ScrollingModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,

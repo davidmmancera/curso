@@ -1,23 +1,26 @@
 <div class="col-md-3">
     <div class="card-container">
-    <a class="card" routerLink="/cliente">        
-        <span>Clientes</span>
-    </a>    
+        <a class="card" routerLink="/">        
+            <span>Home</span>
+        </a>  
     </div>
-
+    <br>
     <div class="card-container">
-    <a class="card" routerLink="/producto">
+        <a class="card" routerLink="/cliente">        
+            <span>Clientes</span>
+        </a> 
+    </div>
+    <div class="card-container">         
+        <a class="card" routerLink="/producto">
             <span>Productos</span>
+        </a>        
+    </div>
+    <div class="card-container">         
+        <a class="card" routerLink="/pedido">
+            <span>Pedidos</span>
         </a>
     </div>
-
-    <div class="card-container">
-    <a class="card" routerLink="/pedido">
-        <span>Pedidos</span>
-        </a>
-    </div>
-</div>
- 
+    <br><br><br><br>
 <div class="col-md-9">
   <router-outlet></router-outlet>
 </div>
