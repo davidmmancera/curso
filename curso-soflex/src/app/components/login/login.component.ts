@@ -1,6 +1,8 @@
 import { Input, Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Login } from 'src/app/domain/login';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -9,19 +11,31 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public ruta: Router) { }
-  
-  formLogin: FormGroup = new FormGroup({
-    usuario: new FormControl(''),
-    password: new FormControl(''),
-  });
+  form = new FormGroup({});
 
-  ngOnInit(): void {}
+  constructor(public ruta: Router, 
+    private formBuilder: FormBuilder,
+    private authService: AuthenticationService) { }  
+ 
+
+  ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      usuario: new FormControl(''),
+      password: new FormControl(''),
+    });
+  }
 
   submit(){
     debugger;
-    if (this.formLogin.valid) {
-      this.ruta.navigate(['cliente']);
+    const x = this.form.value
+
+    if (x.usuario && x.password) {
+      debugger;
+      this.authService.login(x.usuario, x.password).subscribe((authRes: any)=>{
+        console.log(authRes);
+        localStorage.setItem('Authorization', authRes.token);
+        this.ruta.navigateByUrl('/')
+      });  
     }
   }
 

@@ -48,11 +48,6 @@
     </mat-toolbar>
 </div>
 
-<div *ngIf="!mostrarDetallePedido" class="midButton">
-    <button mat-raised-button class="saveButton" (click)="actualizarPedido()">Actualizar Pedido</button>
-    <button mat-raised-button class="backButton" (click)="volver()">Volver a los Pedidos</button>
-</div>
-
 <div *ngIf="mostrarDetallePedido">
     <form [formGroup]="formDetalle" class="formContainer">
         <div>
@@ -78,7 +73,7 @@
             <div class="formRow">
                 <mat-form-field appearance="outline">
                     <mat-label>Producto</mat-label>
-                    <mat-select formControlName="detaProdId" required (ngModelChange)="changePrecioSugerido($event)">
+                    <mat-select formControlName="detaProdId" required>
                         <mat-option *ngFor="let producto of productos" 
                         [value]="producto.prodId" >
                             {{producto.prodDescripcion}}
@@ -91,7 +86,7 @@
             <div class="formRow">
                 <mat-form-field appearance="outline">
                     <mat-label>Cantidad</mat-label>
-                    <input matInput type="number" formControlName="detaCantidad" required (ngModelChange)="changePrecioSugerido($event)">
+                    <input matInput type="number" formControlName="detaCantidad" required>
                     <mat-error>El campo no puede ser vacio</mat-error>
                 </mat-form-field>
             </div>
