@@ -15,26 +15,32 @@ import { ProductoService } from 'src/app/services/producto.service';
 })
 export class PedidoDetalleComponent implements OnInit {
 
+  
   @Input() pediId!: number;
+  @Input() iPedido!: number;
+  @Output() cerrarDetalle = new EventEmitter<boolean>();
+  @Output() update = new EventEmitter<boolean>();
 
+  mostrarDetallePedido = false;
   detalles: DetallePedido[] = [];
   productos: Producto[] = [];
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  formDetallePedido = new FormGroup({});
-  mostrarDetallePedido = false
-  i!: number;
-
-  columnas: string[] = ['Id', 'Producto', 'Cantidad', 'Precio', 'Fecha','Acciones'];
+  precioSugerido = 0;
+  
+  
+  columnas: string[] = ['id', 'producto', 'cantidad', 'precio', 'fecha','acciones'];
   dataSource = new MatTableDataSource<DetallePedido>();
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  formDetalle = new FormGroup({});
+  i!: number;
 
   constructor(private formBuilder: FormBuilder,
-    private detallePedidoService: DetallePedidoService,
-    private productoService: ProductoService) { }
+              private detallePedidoService: DetallePedidoService,
+              private productoService: ProductoService,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.formDetallePedido = this.formBuilder.group({
+    this.formDetalle = this.formBuilder.group({
       detaId: [''],
       detaPediId: [''],
       detaProdId: ['', Validators.required],
@@ -53,10 +59,6 @@ export class PedidoDetalleComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  actualizarTabla() {
-    this.dataSource.data = this.detalles;
-  }
-
   cargarDetalles(){
     this.detallePedidoService.get(this.pediId).subscribe((data: any) =>{
       this.detalles = data;
@@ -72,31 +74,35 @@ export class PedidoDetalleComponent implements OnInit {
     });
   }
 
-  editar(detalle: DetallePedido){
-    this.formDetallePedido.setValue(detalle)
-    this.mostrarDetallePedido = true;
-    this.i = this.detalles.findIndex(elem => elem === detalle)
-  }
-
   agregar(){
-    debugger;
-    this.formDetallePedido.reset();
-    this.formDetallePedido.controls.detaPediId.setValue(this.pediId);
+    this.formDetalle.reset();
+    this.iPedido = 0;
+    this.formDetalle.controls.detaPediId.setValue(this.pediId);
     this.mostrarDetallePedido = true;
     this.i = -1
   }
 
-  cancelar(){
-    this.mostrarDetallePedido = false;
-  } 
+  editar(detalle: DetallePedido){
+    this.formDetalle.setValue(detalle)
+    this.mostrarDetallePedido = true;
+    this.i = this.detalles.findIndex(elem => elem === detalle)
+  }
+
+  eliminar(detalle: DetallePedido){    
+    this.detallePedidoService.delete(detalle.detaId).subscribe(() => {
+      detalle.detaBorrado = true;
+      this.detalles = this.detalles.filter(deta => deta != detalle);
+      this.actualizarTabla();
+    })      
+  }
 
   guardar(){
-    if (!this.formDetallePedido.valid) {
+    if (!this.formDetalle.valid) {
       return;
     }
 
     this.mostrarDetallePedido = false;
-    let copy: DetallePedido = Object.assign(new DetallePedido(), this.formDetallePedido.value);
+    let copy: DetallePedido = Object.assign(new DetallePedido(), this.formDetalle.value);
 
     copy.prodDescripcion = this.productos.find(p => p.prodId == copy.detaProdId)!.prodDescripcion
 
@@ -105,6 +111,7 @@ export class PedidoDetalleComponent implements OnInit {
         copy.detaId = data.detaId;
         copy.detaFechaAlta = data.detaFechaAlta;
         copy.detaBorrado = data.detaBorrado;
+
         this.detalles.push(copy);
         this.actualizarTabla();
       })
@@ -116,13 +123,30 @@ export class PedidoDetalleComponent implements OnInit {
     }
   }
 
-
-  eliminar(detalle: DetallePedido){  
-    this.detallePedidoService.delete(detalle.detaId).subscribe(() => {
-      detalle.detaBorrado = true;
-      this.detalles = this.detalles.filter(deta => deta != detalle);
-      this.actualizarTabla();
-    })     
+  cancelar(){
+    this.mostrarDetallePedido = false;
   }
 
+  actualizarPedido(){
+    this.mostrarDetallePedido = false;
+    this.update.emit(true);
+  }
+
+  volver(){
+    this.cerrarDetalle.emit(false);
+  }
+
+  actualizarTabla() {
+    this.dataSource.data = this.detalles;
+  }
+
+  changePrecioSugerido($event: any){
+    if(this.formDetalle.controls.detaCantidad.value == null){
+      this.formDetalle.controls.prodPrecio
+        .setValue(this.productos.filter(pr => pr.prodId == this.formDetalle.controls.detaProdId.value)[0].prodPrecio)
+      this.precioSugerido = this.formDetalle.controls.prodPrecio.value;
+    }else{
+      this.precioSugerido = this.precioSugerido * this.formDetalle.controls.detaCantidad.value
+    }
+  }
 }

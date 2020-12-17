@@ -1,0 +1,63 @@
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+div.mat-elevation-z8{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    width: 100%;
+    /*table-layout: fixed;*/
+}
+
+.formContainer{
+    width: 75%;
+    margin: auto;
+    text-align: center;
+}
+
+.mat-toolbar-row{ 
+    justify-content: space-between; 
+    background-color: white;
+}
+
+.formRow{
+    text-align: left;
+    display: inline-block;
+    margin: 1em;
+}
+
+.saveButton{
+    /*En caso de modificar el color verde, modificarlo tambien en el edit*/
+    background-color: rgb(66, 141, 240);
+    color: white;
+    margin: 10px;
+    margin-right: 20px !important;
+}
+
+.backButton{
+    background-color: rgb(224, 165, 54);
+    color:white;
+    margin: 10px;
+}
+
+.cancelButton{
+    background-color: rgb(241, 70, 70);
+    color:white;
+    margin: 10px;
+}
+
+.editButton{
+    color:rgb(115, 117, 115);
+}
+
+.deleteButton{
+    color:rgb(241, 70, 70);
+}
+
+.subTabla{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}

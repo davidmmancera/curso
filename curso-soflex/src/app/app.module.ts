@@ -23,6 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     ProductoComponent,
     PedidoComponent,
     PedidoDetalleComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatCardModule,
     ScrollingModule
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
