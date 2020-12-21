@@ -64,7 +64,7 @@
         <br>
         <div>
             <div class="formRow">
-                <mat-form-field appearance="outline">
+                <mat-form-field >
                     <mat-label>Nombre</mat-label>
                     <input matInput formControlName="clienNombre" required>
                     <mat-error>El campo no puede ser vacio</mat-error>
@@ -72,14 +72,14 @@
             </div>
 
             <div class="formRow">
-                <mat-form-field appearance="outline">
+                <mat-form-field >
                     <mat-label>Dirección</mat-label>
                     <input matInput formControlName="clienDireccion" required>
                     <mat-error>El campo no puede ser vacio</mat-error>
                 </mat-form-field>
             </div>
         </div>
-    
+        <br><br>
         <div>
             <button mat-raised-button  (click)="guardarCliente()" class="saveButton">Guardar</button>
             <button mat-raised-button  (click)="cancelar()" class="cancelButton">Cancelar</button>
