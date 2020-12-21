@@ -5,7 +5,10 @@ $app->post('/login', function($request, $response, $args){
     $input = file_get_contents("php://input");
     $data = json_decode($input, true);
 
-    if($data["usuario"] == "prueba" && $data["password"] == "1234"){
+    $u = "prueba";
+    $p = "1234";
+
+    if($data["usuario"] == $u && $data["password"] == $p){
         $authToken = G::CrearToken($data);
     }
 
