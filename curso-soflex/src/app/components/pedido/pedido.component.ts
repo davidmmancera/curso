@@ -94,6 +94,7 @@ export class PedidoComponent implements OnInit {
   }
 
   guardarPedido(){
+    debugger;  
     if (!this.form.valid) {
       return;
     }

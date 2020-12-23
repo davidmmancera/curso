@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(x.usuario, x.password).subscribe((authRes: any)=>{
         console.log(authRes);
         localStorage.setItem('Authorization', authRes.token);
-        this.ruta.navigateByUrl('/')
+        this.ruta.navigate(['cliente']);
       });  
     }
   }

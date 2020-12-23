@@ -2,9 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { DetallePedido } from 'src/app/domain/detalle-pedido';
+import { DetallePedido } from 'src/app/domain/pedido-detalle';
 import { Producto } from 'src/app/domain/producto';
-import { DetallePedidoService } from 'src/app/services/detalle-pedido.service';
+import { DetallePedidoService } from 'src/app/services/pedido-detalle.service';
 import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
@@ -100,6 +100,7 @@ export class PedidoDetalleComponent implements OnInit {
   } 
 
   guardar(){
+    debugger;
     if (!this.formDetalle.valid) {
       return;
     }

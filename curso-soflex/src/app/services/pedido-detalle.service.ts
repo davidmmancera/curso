@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DetallePedido } from '../domain/detalle-pedido';
+import { DetallePedido } from '../domain/pedido-detalle';
 import { ConfigService } from './config.service';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { ConfigService } from './config.service';
 })
 export class DetallePedidoService {
 
-  url= "detalle-pedido";
+  url= "pedido-detalle";
 
   constructor(private config: ConfigService) { }
 
