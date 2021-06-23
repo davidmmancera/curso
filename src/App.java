@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class App {
     public static void main(String[] args) {
 		ResolverProblemaImplementacion problema = new ResolverProblemaImplementacion();		
-		
 		ArrayList<LetraResultado> arrayResultado = problema.obtenerResultado("sal", "mas", "alla");		
 		if (arrayResultado != null) {			
 			for (int i = 0; i < arrayResultado.size(); i++) {				
