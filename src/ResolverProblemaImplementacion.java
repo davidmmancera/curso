@@ -3,7 +3,6 @@ import java.lang.Math;
 
 public class ResolverProblemaImplementacion implements ResolverProblemaInterface {
     @Override
-    
     public ArrayList<LetraResultado> obtenerResultado(String palabraUno, String palabraDos, String palabraResultado) {
 
         palabraUno = palabraUno.toLowerCase();
